@@ -1,0 +1,33 @@
+{
+  "name": "runbypace.js",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tygerbytes/runbypacejs.git"
+  },
+  "author": "Ty Walls",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tygerbytes/runbypacejs/issues"
+  },
+  "homepage": "https://github.com/tygerbytes/runbypacejs#readme",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "gulp": "^3.9.1",
+    "gulp-env": "^0.4.0",
+    "gulp-mocha": "^4.3.1",
+    "gulp-nodemon": "^2.2.1",
+    "passport": "^0.4.0",
+    "should": "^13.0.1",
+    "sinon": "^3.2.1",
+    "supertest": "^3.0.0"
+  }
+}
