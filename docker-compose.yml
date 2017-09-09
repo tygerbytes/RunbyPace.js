@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+    database:
+      image: dwmkerr/dynamodb
+      ports:
+          - '8000:8000'
+      volumes:
+          - database:/data
+      command: -dbPath /data -sharedDb
+
+    runbypacejs:
+        build: .
+        links:
+            - database
+        volumes:
+            - .:/runbypacejs
+        ports:
+            - '3000:3000'
+
+volumes:
+    database:
