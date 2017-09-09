@@ -1,7 +1,9 @@
-var gulp = require('gulp'),
-  nodemon = require('gulp-nodemon');
+const gulp = require('gulp'),
+  nodemon = require('gulp-nodemon'),
+  gulpMocha = require('gulp-mocha'),
+  env = require('gulp-env');
 
-gulp.task('default', function(){
+gulp.task('default', () => {
   nodemon({
     script: 'app.js',
     ext: 'js',
@@ -10,8 +12,14 @@ gulp.task('default', function(){
     },
     ignore: ['./node_modules/**']
   })
-  .on('restart', function(){
+  .on('restart', () => {
     console.log('Restarting server');
   });
 });
 
+gulp.task('test', () => {
+  env({
+    vars: {ENV: 'Test'}});
+  gulp.src('test/*.js', { read: false })
+    .pipe(gulpMocha({ reporter: 'nyan'}))
+});

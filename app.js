@@ -1,19 +1,21 @@
+const express = require('express');
+const bodyParser = require('body-parser');
 
-var express = require('express');
-var bodyParser = require('body-parser');
+const app = express();
 
-var app = express();
-
-var port = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
+workoutRouter = require('./routes/workoutRoutes');
+app.use('/api/workouts', workoutRouter);
+
+app.get('/', (req, res) => {
   res.send('Welcome to the RunbyPace.js API!');
 });
 
-app.listen(port, function() {
+app.listen(port, () => {
   console.log('Running on port: ' + port);
 });
 
